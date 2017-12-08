@@ -1,3 +1,19 @@
 body {
   background-color: #888888;
 }
+
+ td{
+  width: 150px;
+  height: 150px;
+  border: solid 3px black;
+  padding: 10px;
+  text-align: center;
+}
+thead td {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+table {
+  border-collapse: collapse;
+}
