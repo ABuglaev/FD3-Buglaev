@@ -12,11 +12,12 @@ var goods = [
   {name: 'Часы09', barcode: '4811645004140', picURL: 'images/9.jpg',  price: 10.74, amount: 46, description: 'Часы настенные, модель01, диаметр 290мм, стекло минеральное, кольцо пластик. '},
   {name: 'Часы10', barcode: '4811645008438', picURL: 'images/10.jpg', price: 10.74, amount: 24, description: 'Часы настенные, модель01, диаметр 290мм, стекло минеральное, кольцо пластик. '},
   {name: 'Часы11', barcode: '4811645009923', picURL: 'images/11.jpg', price: 10.74, amount: 43, description: 'Часы настенные, модель01, диаметр 290мм, стекло минеральное, кольцо пластик. '},
-  {name: 'Часы12', barcode: '4811645001521', picURL: 'images/12.jpg', price: 16.42, amount: 23, description: 'Часы настенные пластиковые, модель01, диаметр 290мм, стекло минеральное, кольцо пластик-серебро. Засыпка – специи.'},
+  {name: 'Часы12', barcode: '4811645001521', picURL: 'images/12.jpg', price: 16.42, amount: 'j23', description: 'Часы настенные пластиковые, модель01, диаметр 290мм, стекло минеральное, кольцо пластик-серебро. Засыпка – специи.'},
 ];
 
 //компонент - строчка в таблице(инфо по одному товару)
 class GoodsItem extends React.Component {
+
   render () {
     return  <tr>
               <td>{this.props.name}</td>
@@ -29,17 +30,19 @@ class GoodsItem extends React.Component {
   }
 };
 
+GoodsItem.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  //amount: PropTypes.number
+};
+
 //компонент - таблица в целом
 class Table extends React.Component {
   render () {
 
     var arr = goods.map( v => 
-      <GoodsItem {...v} />
+      <GoodsItem {...v} key={v.barcode}/>
     );
-
-    // for (let i=0; i<arr.length;i++) {
-    //   arr[i].key = 'item №' + i;
-    // };
 
     return  <table>
               <thead>
