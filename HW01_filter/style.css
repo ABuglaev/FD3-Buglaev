@@ -1,0 +1,13 @@
+.form {
+  width: 30vw;
+}
+
+.input {
+  width: calc(25vw - 20px);
+}
+
+.output {
+  width: 30vw;
+  height: 700px;
+}
+
